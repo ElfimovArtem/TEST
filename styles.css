@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.textarea {
+    width: 740px;
+    height: 80px;
+    resize: none;
+    display: block;
+    margin: 70px auto 20px;
+    outline: none;
+    border: 3px solid #757575;
+}
+.keyboard {
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 2px solid #000000;
+    padding: 15px;
+    border-radius: 20px;
+}
+.keyboard-button {
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 5px 18px;
+    margin-bottom: 10px;
+}
+.keyboard-button:nth-child(60) {
+    padding: 5px 135px;
+}
+.keyboard-button:nth-child(56) {
+    padding: 5px 42px;
+}
+.keyboard-button:nth-child(43) {
+    padding: 5px 10px;
+}
+.keyboard-button:nth-child(42) {
+    padding: 5px 40px;
+}
+.keyboard-button:hover {
+    cursor: pointer;
+    background-color: #b6b6b6;
+}
+.keyboard-button:active {
+    transform: scale(0.97, 0.97);
+}
+.keyboard-button:nth-child(60):active {
+    transform: scale(0.99, 0.99);
+}
