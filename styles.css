@@ -10,6 +10,8 @@ body {
     margin: 70px auto 20px;
     outline: none;
     border: 3px solid #757575;
+    font-size: 17px;
+    padding: 5px 10px;
 }
 .keyboard {
     width: 750px;
@@ -21,24 +23,31 @@ body {
     border: 2px solid #000000;
     padding: 15px;
     border-radius: 20px;
+    user-select: none;
 }
 .keyboard-button {
     border: 1px solid #000000;
     border-radius: 4px;
-    padding: 5px 18px;
+    padding: 5px 16px;
     margin-bottom: 10px;
 }
 .keyboard-button:nth-child(60) {
     padding: 5px 135px;
 }
+.keyboard-button:nth-child(14) {
+    padding: 5px 42px;
+}
+.keyboard-button:nth-child(30) {
+    padding: 5px 22px;
+}
 .keyboard-button:nth-child(56) {
     padding: 5px 42px;
 }
 .keyboard-button:nth-child(43) {
-    padding: 5px 10px;
+    padding: 5px 23px;
 }
 .keyboard-button:nth-child(42) {
-    padding: 5px 40px;
+    padding: 5px 47px;
 }
 .keyboard-button:hover {
     cursor: pointer;
@@ -49,4 +58,19 @@ body {
 }
 .keyboard-button:nth-child(60):active {
     transform: scale(0.99, 0.99);
+}
+.active {
+    transform: scale(0.97, 0.97);
+    background-color: #b6b6b6;
+}
+.info {
+    width: 650px;
+    margin: 15px auto 0;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+}
+.caps {
+    background-color: #b6b6b6;
 }
