@@ -13,5 +13,11 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        'semi': [2, 'always'],
+        'no-unused-vars': [1],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ]
     }
 };

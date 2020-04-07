@@ -113,7 +113,7 @@ keyboardBody.addEventListener('keyup', event => {
 });
 
 keyboard.addEventListener('click', event => {
-  if (event.target["classList"].contains('keyboard-button')) {
+  if (event.target['classList'].contains('keyboard-button')) {
     buttonDraw(event.target);
   }
 });
@@ -188,12 +188,12 @@ document.addEventListener('keydown', event => {
       if (el.dataset.printable === 'true') {
         el.innerHTML = el.innerHTML.toLowerCase();
       }
-    })
+    });
   }
 });
 
 keyboardBody.addEventListener('click', event => {
-  if (event.target["dataset"].code === 'CapsLock' && isCaps === false) {
+  if (event.target['dataset'].code === 'CapsLock' && isCaps === false) {
     isCaps = true;
     let currentButton = document.querySelector(`[data-code='CapsLock']`);
     currentButton.classList.add('active');
@@ -203,7 +203,7 @@ keyboardBody.addEventListener('click', event => {
         el.innerHTML = el.innerHTML.toUpperCase();
       }
     });
-  } else if (event.target["dataset"].code === 'CapsLock' && isCaps === true) {
+  } else if (event.target['dataset'].code === 'CapsLock' && isCaps === true) {
     isCaps = false;
     let currentButton = document.querySelector(`[data-code='CapsLock']`);
     currentButton.classList.remove('active');
@@ -304,7 +304,7 @@ keyboardBody.addEventListener('keydown', event => {
       if (el.dataset.code === 'Period' && languageSelection === 'en') {
         el.innerHTML = '>';
       }
-    })
+    });
   }
 });
 
