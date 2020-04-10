@@ -40,6 +40,8 @@ function init() {
     keyboardButton.dataset.en = keyboardButtonsCode[buttonIndex].en;
     keyboardButton.dataset.ru = keyboardButtonsCode[buttonIndex].ru;
     keyboardButton.dataset.printable = keyboardButtonsCode[buttonIndex].printable;
+    keyboardButton.dataset.isShiftEn = keyboardButtonsCode[buttonIndex].isShiftEn;
+    keyboardButton.dataset.isShiftRu = keyboardButtonsCode[buttonIndex].isShiftRu;
     keyboardButton.dataset.nonPrintableValues = keyboardButtonsCode[buttonIndex].nonPrintableValues;
     keyboardButton.innerHTML = keyboardButtonsCode[buttonIndex][languageSelection];
   }
@@ -145,86 +147,10 @@ keyboardBody.addEventListener('keydown', event => {
       if (el.dataset.printable === 'true') {
         el.innerHTML = el.innerHTML.toUpperCase();
       }
-      if (el.dataset.code === 'Digit1') {
-        el.innerHTML = '!';
-      }
-      if (el.dataset.code === 'Digit2' && languageSelection === englishLanguage) {
-        el.innerHTML = '@';
-      } else if (el.dataset.code === 'Digit2' && languageSelection === russianLanguage) {
-        el.innerHTML = '"';
-      }
-      if (el.dataset.code === 'Digit3' && languageSelection === englishLanguage) {
-        el.innerHTML = '#';
-      } else if (el.dataset.code === 'Digit3' && languageSelection === russianLanguage) {
-        el.innerHTML = '№';
-      }
-      if (el.dataset.code === 'Digit4' && languageSelection === englishLanguage) {
-        el.innerHTML = '$';
-      } else if (el.dataset.code === 'Digit4' && languageSelection === russianLanguage) {
-        el.innerHTML = ';';
-      }
-      if (el.dataset.code === 'Digit5' && languageSelection === englishLanguage) {
-        el.innerHTML = '%';
-      } else if (el.dataset.code === 'Digit5' && languageSelection === russianLanguage) {
-        el.innerHTML = '%';
-      }
-      if (el.dataset.code === 'Digit6' && languageSelection === englishLanguage) {
-        el.innerHTML = '^';
-      } else if (el.dataset.code === 'Digit6' && languageSelection === russianLanguage) {
-        el.innerHTML = ':';
-      }
-      if (el.dataset.code === 'Digit7' && languageSelection === englishLanguage) {
-        el.innerHTML = '&';
-      } else if (el.dataset.code === 'Digit7' && languageSelection === russianLanguage) {
-        el.innerHTML = '?';
-      }
-      if (el.dataset.code === 'Digit8' && languageSelection === englishLanguage) {
-        el.innerHTML = '*';
-      } else if (el.dataset.code === 'Digit8' && languageSelection === russianLanguage) {
-        el.innerHTML = '*';
-      }
-      if (el.dataset.code === 'Digit9' && languageSelection === englishLanguage) {
-        el.innerHTML = '(';
-      } else if (el.dataset.code === 'Digit9' && languageSelection === russianLanguage) {
-        el.innerHTML = '(';
-      }
-      if (el.dataset.code === 'Digit0' && languageSelection === englishLanguage) {
-        el.innerHTML = ')';
-      } else if (el.dataset.code === 'Digit0' && languageSelection === russianLanguage) {
-        el.innerHTML = ')';
-      }
-      if (el.dataset.code === 'Minus' && languageSelection === englishLanguage) {
-        el.innerHTML = '_';
-      } else if (el.dataset.code === 'Minus' && languageSelection === russianLanguage) {
-        el.innerHTML = '_';
-      }
-      if (el.dataset.code === 'Equal' && languageSelection === englishLanguage) {
-        el.innerHTML = '+';
-      } else if (el.dataset.code === 'Equal' && languageSelection === russianLanguage) {
-        el.innerHTML = '+';
-      }
-      if (el.dataset.code === 'Backslash' && languageSelection === englishLanguage) {
-        el.innerHTML = '|';
-      } else if (el.dataset.code === 'Backslash' && languageSelection === russianLanguage) {
-        el.innerHTML = '/';
-      }
-      if (el.dataset.code === 'BracketLeft' && languageSelection === englishLanguage) {
-        el.innerHTML = '{';
-      }
-      if (el.dataset.code === 'Semicolon' && languageSelection === englishLanguage) {
-        el.innerHTML = ':';
-      }
-      if (el.dataset.code === 'Quote' && languageSelection === englishLanguage) {
-        el.innerHTML = '"';
-      }
-      if (el.dataset.code === 'BracketRight' && languageSelection === englishLanguage) {
-        el.innerHTML = '}';
-      }
-      if (el.dataset.code === 'Comma' && languageSelection === englishLanguage) {
-        el.innerHTML = '<';
-      }
-      if (el.dataset.code === 'Period' && languageSelection === englishLanguage) {
-        el.innerHTML = '>';
+      if (el.dataset.isShiftEn !== 'undefined' && languageSelection === englishLanguage) {
+        el.innerHTML = el.dataset.isShiftEn;
+      } else if (el.dataset.isShiftRu !== 'undefined' && languageSelection === russianLanguage) {
+        el.innerHTML = el.dataset.isShiftRu;
       }
     });
   }
