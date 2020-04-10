@@ -40,6 +40,7 @@ function init() {
     keyboardButton.dataset.en = keyboardButtonsCode[buttonIndex].en;
     keyboardButton.dataset.ru = keyboardButtonsCode[buttonIndex].ru;
     keyboardButton.dataset.printable = keyboardButtonsCode[buttonIndex].printable;
+    keyboardButton.dataset.nonPrintableValues = keyboardButtonsCode[buttonIndex].nonPrintableValues;
     keyboardButton.innerHTML = keyboardButtonsCode[buttonIndex][languageSelection];
   }
 }
@@ -63,39 +64,16 @@ keyboardElement.addEventListener('click', event => {
 });
 
 function buttonDraw(currentButton) {
-  if (currentButton.dataset.printable === 'false') {
-    if (currentButton.dataset.code === 'Backspace') {
-      return textarea.innerHTML = textarea.innerHTML.slice(0, -1);
-    }
-    if (currentButton.dataset.code === 'Space') {
-      return textarea.innerHTML += ' ';
-    }
-    if (currentButton.dataset.code === 'ArrowRight') {
-      return textarea.innerHTML += '►';
-    }
-    if (currentButton.dataset.code === 'ArrowLeft') {
-      return textarea.innerHTML += '◄';
-    }
-    if (currentButton.dataset.code === 'ArrowDown') {
-      return textarea.innerHTML += '▼';
-    }
-    if (currentButton.dataset.code === 'ArrowUp') {
-      return textarea.innerHTML += '▲';
-    }
-    if (currentButton.dataset.code === 'Delete') {
-      return textarea.innerHTML = '';
-    }
-    if (currentButton.dataset.code === 'Tab') {
-      return textarea.innerHTML += '      ';
-    }
-    if (currentButton.dataset.code === 'Enter') {
-      return textarea.innerHTML += '\n';
-    }
-    return;
+  if (currentButton.dataset.printable === 'false' && currentButton.dataset.code === 'Backspace') {
+    return textarea.innerHTML = textarea.innerHTML.slice(0, -1);
+  } else if (currentButton.dataset.printable === 'false' && currentButton.dataset.code === 'Delete') {
+    return textarea.innerHTML = '';
+  } else if (currentButton.dataset.printable === 'false' && currentButton.dataset.nonPrintableValues) {
+    return textarea.innerHTML += currentButton.dataset.nonPrintableValues;
+  } else if (currentButton.dataset.printable === 'true') {
+    let buttonValue = currentButton.innerHTML;
+    return textarea.textContent += buttonValue;
   }
-  let buttonValue = currentButton.innerHTML;
-
-  return textarea.textContent += buttonValue;
 }
 
 document.addEventListener('keydown', event => {
