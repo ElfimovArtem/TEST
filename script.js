@@ -144,12 +144,9 @@ keyboardBody.addEventListener('keydown', event => {
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && isShiftClicked === false) {
     isShiftClicked = true;
     keyboardElement.querySelectorAll('.keyboard-button').forEach(el => {
-      if (el.dataset.printable === 'true') {
-        el.innerHTML = el.innerHTML.toUpperCase();
-      }
-      if (el.dataset.isShiftEn !== 'undefined' && languageSelection === englishLanguage) {
+      if (el.dataset.printable === 'true' && el.dataset.isShiftEn && languageSelection === englishLanguage) {
         el.innerHTML = el.dataset.isShiftEn;
-      } else if (el.dataset.isShiftRu !== 'undefined' && languageSelection === russianLanguage) {
+      } else if (el.dataset.printable === 'true' && el.dataset.isShiftRu && languageSelection === russianLanguage) {
         el.innerHTML = el.dataset.isShiftRu;
       }
     });
